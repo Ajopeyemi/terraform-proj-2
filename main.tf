@@ -113,6 +113,6 @@ resource "aws_eip" "eip-for-nat-gateway" {
  allocation_id = aws_eip.eip-for-nat-gateway.id
  subnet_id = aws_subnet.Prod-priv-sub1.id
   tags = {
-    Name = "nat-gw"
+    Name = "Prod-Nat-gateway"
   }
  }
