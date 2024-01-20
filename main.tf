@@ -103,13 +103,9 @@ resource "aws_route" "Prod-igw-association" {
 }
 
 
-/* allocate elastic ip address
+# allocate elastic ip address
 resource "aws_eip" "eip-for-nat-gateway" {
-  vpc = true
-
-     tags = {
-    Name = "EIP"
-  }
+  domain   = "vpc"
 }
 
 # create nat gateway
@@ -120,12 +116,3 @@ resource "aws_eip" "eip-for-nat-gateway" {
     Name = "nat-gw"
   }
  }
-
- {
-  cidr_block = "0.0.0.0/0"
-  nat_gateway_id = aws_nat_gateway.Prod-Nat-gateway.id
-  tags = {
-    Name = "association"
-  }
-}
-*/
